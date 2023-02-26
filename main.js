@@ -1,33 +1,48 @@
 // main.js
 
 const { app, BrowserWindow } = require('electron')
-const config = require('./config');
+//const settings = require('./settings')
 
-var args = process.argv
+// Disable Hardware Acceleration
+// https://www.electronjs.org/docs/latest/tutorial/offscreen-rendering
+app.disableHardwareAcceleration()
 
 createWindow = () => {
     const win = new BrowserWindow({
         width: 500,
         height: 800,
+        title: 'Home Assistant Desktop',
+        icon: __dirname + '/images/HomeAssistant.ico',
         autoHideMenuBar: true,
         webPreferences: {
             contextIsolation: true,
-            //webSecurity: false
-            //preload: path.join(__dirname, 'preload.js')
+            webviewTag: true,
+            nodeIntegration: true,
+            nativeWindowOpen: true,
         }
     })
 
-    if (args[2]) {
-        win.loadURL(config.ALT_HASS_URL);
-    } else {
-        win.loadURL(config.HASS_URL);
-    }
+    //win.settings = settings
+
+    //win.connect = (url) => {
+    //    win.url = url
+    //    settings.setUrl(url)
+    //    win.loadURL(settings.url);
+    //}
+
+    win.loadURL('http://homeassistant.local:8123');
 }
 
 app.whenReady().then(() => {
     createWindow()
+
+    app.on('activate', () => {
+      if (BrowserWindow.getAllWindows().length === 0) createWindow()
+    })
 })
 
 app.on('window-all-closed', () => {
-    if (process.platform !== 'darwin') app.quit()
+    if (process.platform !== 'darwin') {
+        app.quit();
+    }
 })

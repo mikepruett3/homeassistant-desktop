@@ -1,18 +1,34 @@
 {
-  "name": "simple_ha_app",
+  "name": "homeassistant-desktop",
   "version": "1.0.0",
-  "description": "A Desktop Application for Home Assistant",
+  "productName": "Home Assistant Desktop",
+  "description": "A simple Home Assistant Desktop application, built using Electron.js",
   "main": "main.js",
   "scripts": {
-    "start": "electron ."
+    "start": "electron-forge start",
+    "package": "electron-forge package",
+    "make": "electron-forge make"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/mikepruett3/homeassistant-desktop"
   },
   "keywords": [
-    "homeassistant",
-    "hass"
+    "Electron",
+    "Home Assistant"
   ],
   "author": "Mike Pruett",
   "license": "MIT",
   "devDependencies": {
+    "@electron-forge/cli": "^6.0.5",
+    "@electron-forge/maker-deb": "^6.0.5",
+    "@electron-forge/maker-rpm": "^6.0.5",
+    "@electron-forge/maker-squirrel": "^6.0.5",
+    "@electron-forge/maker-zip": "^6.0.5",
     "electron": "^23.1.1"
+  },
+  "dependencies": {
+    "electron-settings": "^4.0.2",
+    "electron-squirrel-startup": "^1.0.0"
   }
 }

@@ -1,6 +1,0 @@
-const config = {
-    HASS_URL: 'http://homeassistant.local:8123',
-    ALT_HASS_URL: 'http://homeassistant-alt.local:8123'
-};
-
-module.exports = config;
