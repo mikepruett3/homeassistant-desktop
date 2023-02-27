@@ -17,7 +17,7 @@
     "Electron",
     "Home Assistant"
   ],
-  "author": "Mike Pruett",
+  "author": "Mike Pruett <mikepruett3@gmail.com>",
   "license": "MIT",
   "devDependencies": {
     "@electron-forge/cli": "^6.0.5",

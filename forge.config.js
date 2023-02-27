@@ -6,7 +6,10 @@ module.exports = {
   makers: [
     {
       name: '@electron-forge/maker-squirrel',
-      config: {},
+      config: {
+        iconUrl: __dirname + '/images/HomeAssistant.ico',
+        setupIcon: __dirname + '/images/HomeAssistant.ico',
+      },
     },
     {
       name: '@electron-forge/maker-zip',
