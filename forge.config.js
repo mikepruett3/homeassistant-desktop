@@ -9,7 +9,7 @@ module.exports = {
     {
       name: '@electron-forge/maker-squirrel',
       config: {
-        iconUrl: 'https://raw.githubusercontent.com/mikepruett3/homeassistant-desktop/main/images/HomeAssistant.ico',
+        iconUrl: 'https://github.com/mikepruett3/homeassistant-desktop/blob/main/images/HomeAssistant.ico?raw=true',
         setupIcon: __dirname + '/images/HomeAssistant.ico',
       },
     },
