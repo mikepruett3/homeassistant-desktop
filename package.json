@@ -5,30 +5,42 @@
   "description": "A simple Home Assistant Desktop application, built using Electron.js",
   "main": "main.js",
   "scripts": {
+    "test": "electron .",
     "start": "electron-forge start",
     "package": "electron-forge package",
-    "make": "electron-forge make"
+    "make": "electron-forge make",
+    "publish": "electron-forge publish"
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/mikepruett3/homeassistant-desktop"
+    "url": "https://github.com/mikepruett3/homeassistant-desktop.git"
   },
   "keywords": [
     "Electron",
     "Home Assistant"
   ],
-  "author": "Mike Pruett <mikepruett3@gmail.com>",
+  "author": {
+    "name": "Mike Pruett",
+    "email": "mikepruett3@gmail.com"
+  },
   "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/mikepruett3/homeassistant-desktop/issues"
+  },
+  "homepage": "https://github.com/mikepruett3/homeassistant-desktop#readme",
   "devDependencies": {
     "@electron-forge/cli": "^6.0.5",
     "@electron-forge/maker-deb": "^6.0.5",
     "@electron-forge/maker-rpm": "^6.0.5",
     "@electron-forge/maker-squirrel": "^6.0.5",
     "@electron-forge/maker-zip": "^6.0.5",
+    "@electron-forge/plugin-auto-unpack-natives": "^6.2.1",
+    "@electron-forge/publisher-github": "^6.2.1",
     "electron": "^23.1.1"
   },
   "dependencies": {
-    "electron-settings": "^4.0.2",
-    "electron-squirrel-startup": "^1.0.0"
+    "electron-prompt": "^1.7.0",
+    "electron-squirrel-startup": "^1.0.0",
+    "electron-store": "^8.1.0"
   }
 }
