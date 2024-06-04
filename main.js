@@ -18,7 +18,7 @@ createWindow = () => {
         width: 1280,
         height: 720,
         title: 'Home Assistant Desktop',
-        icon: __dirname + '/images/HomeAssistant.ico',
+        icon: nativeImage.createFromPath(__dirname + '/images/HomeAssistant.png'),
         autoHideMenuBar: true,
         webPreferences: {
             contextIsolation: false,
@@ -54,7 +54,7 @@ createWindow = () => {
         .catch(console.error);
     }
 
-    const icon = nativeImage.createFromPath(__dirname + '/images/HomeAssistant.ico')
+    const icon = nativeImage.createFromPath(__dirname + '/images/HomeAssistant.png')
     tray = new Tray(icon)
 
     const contextMenu = Menu.buildFromTemplate([
