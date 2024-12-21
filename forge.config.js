@@ -16,14 +16,25 @@ module.exports = {
     {
       name: '@electron-forge/maker-zip',
       platforms: ['darwin'],
+      config: {
+        icon: "./images/HomeAssistant.png"
+      },
     },
     {
       name: '@electron-forge/maker-deb',
-      config: {},
+      config: {
+        icon: "./images/HomeAssistant.png"
+      },
     },
     {
       name: '@electron-forge/maker-rpm',
-      config: {},
+      config: {
+        icon: "./images/HomeAssistant.png"
+      },
+    },
+    {
+      name: 'electron-forge-maker-appimage',
+      platforms: ['linux'],
     },
   ],
   publishers: [

@@ -3,7 +3,7 @@
 // https://www.electronforge.io/config/makers/squirrel.windows
 if (require('electron-squirrel-startup')) return;
 
-const { app, BrowserWindow, Tray, Menu, nativeImage, dialog } = require('electron')
+const { app, session, BrowserWindow, Menu, Tray, nativeImage, dialog } = require('electron')
 const prompt = require('electron-prompt');
 const { getURL, setURL, delURL, getHA, setHA } = require('./settings.js');
 
@@ -18,7 +18,7 @@ createWindow = () => {
         width: 1280,
         height: 720,
         title: 'Home Assistant Desktop',
-        icon: nativeImage.createFromPath(__dirname + '/images/HomeAssistant.png'),
+        icon: __dirname + '/images/HomeAssistant.png',
         autoHideMenuBar: true,
         webPreferences: {
             contextIsolation: false,
@@ -53,9 +53,6 @@ createWindow = () => {
         })
         .catch(console.error);
     }
-
-    const icon = nativeImage.createFromPath(__dirname + '/images/HomeAssistant.png')
-    tray = new Tray(icon)
 
     const contextMenu = Menu.buildFromTemplate([
         {
@@ -107,6 +104,19 @@ createWindow = () => {
             role: 'quit'
         }
     ])
+
+
+    let tray = null
+    if (process.platform == 'darwin') {
+        const icon = nativeImage.createFromPath(__dirname + '/images/HomeAssistant.icns')
+        tray = new Tray(icon)
+    } else if (process.platform == 'win32') {
+        const icon = nativeImage.createFromPath(__dirname + '/images/HomeAssistant.ico')
+        tray = new Tray(icon)
+    } else if (process.platform == 'linux') {
+        const icon = nativeImage.createFromPath(__dirname + '/images/HomeAssistant.png')
+        tray = new Tray(icon)
+    }
 
     tray.setToolTip('Home Assistant Desktop')
     tray.setTitle('Home Assistant Desktop')
